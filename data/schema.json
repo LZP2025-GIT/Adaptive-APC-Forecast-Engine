@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAFE Minimal Event Schema",
+  "type": "object",
+  "required": ["timestamp", "domain_LRs", "f5_verified_fraction"],
+  "properties": {
+    "timestamp": { "type": "string", "description": "UTC ISO-8601" },
+    "domain_LRs": {
+      "type": "object",
+      "additionalProperties": { "type": "number" },
+      "description": "Per-domain likelihood ratios for this tick"
+    },
+    "f5_verified_fraction": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Verified fraction used to derive M_F5"
+    }
+  }
+}
